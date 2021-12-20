@@ -1,0 +1,12 @@
+<h2>Books</h2>
+<div class="book-item" *ngFor="let book of books|async">
+    <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
+    <button (click)="onAddBook(book.id)" data-test="add-button">Add to Collection</button>
+</div>
+
+<h2>added books</h2>
+
+<div class="book-item" *ngFor="let addedBook of addedBooks|async">
+    <p>{{addedBook.volumeInfo.title}}</p><span> by {{addedBook.volumeInfo.authors}}</span>
+    <button (click)="onRemoveBook(addedBook.id)" data-test="remove-button">Remove from Collection</button>
+</div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadBooks } from './app-store';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngrx-book';
+
+  constructor(private store:Store){}
+
+  ngOnInit(){
+    this.store.dispatch(loadBooks())
+  }
 }
